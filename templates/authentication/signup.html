@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Authentication</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <h3>Sign Up</h3>
+    {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+  <strong>Message:</strong> {{ message }}
+  <button type="button"  class="close" date-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+  </button>
+  </div> 
+  {% endfor %}
+
+    <form action="/signup" method="post">
+
+      {% csrf_token %}
+
+      <label for="">Username</label>
+      <input type="text" id="username" name="username" placeholder="Create a username"  Required>
+      <br>
+
+      <label for="">First name</label>
+      <input type="text" id="fname" name="fname" placeholder="Enter your firstname"  Required>
+      <br>
+
+      <label for="">Last name</label>
+      <input type="text" id="lname" name="lname" placeholder="Enetr your lastname"  Required>
+      <br>
+
+      <label for="">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="Enetr your email Address"  Required>
+      <br>
+
+      <label for="">Password</label>
+      <input type="password" id="pass1" name="pass1" placeholder="Enetr a password"  Required>
+      <br>
+
+      <label for="">Confirm your password</label>
+      <input type="password" id="pass2" name="pass2" placeholder="Confirm your password"  Required>
+      <br>
+      
+      <button type="submit">Sign Up</button>
+    </form>
+  
+	<script src="index.js"></script>
+  </body>
+</html>
